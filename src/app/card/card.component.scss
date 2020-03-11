@@ -1,0 +1,172 @@
+.card {
+  width: 120px;
+  height: 120px;
+  background-color: #f5f5f5;
+  border: 1px solid #bfbfbf;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5px;
+  transform: rotate(90deg);
+}
+.shape {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  &[data-color='red'] {
+    &[data-shape='oval'] {
+
+
+      &[data-filled='full'] {
+        background-color: red;
+        border: 1px solid red;
+        &::before, &::after {
+          background-color: red;
+          border: 1px solid red;
+        }
+      }
+      &[data-filled='half'] {
+        background: repeating-linear-gradient(
+          to bottom, red 11px, white 12px, white 6px, red 5px
+        );
+        &::before {
+          border-left: 1px solid red;
+        }
+        &::after {
+          border-right: 1px solid red;
+        }
+        &::before, &::after {
+          background: repeating-linear-gradient(
+            to bottom, red 11px, white 12px, white 6px, red 5px
+          );
+          background-size: 100% 20px;
+          top: 0px;
+        }
+
+      }
+      &[data-filled='none'] {
+        &::before {
+          border-left: 1px solid red;
+          border-top: 1px solid red;
+          border-bottom: 1px solid red;
+        }
+        &::after {
+          border-right: 1px solid red;
+          border-top: 1px solid red;
+          border-bottom: 1px solid red;
+        }
+        border-top: 1px solid red;
+        border-bottom: 1px solid red;
+      }
+    }
+    &[data-shape='diamond'] {
+      &::before, &::after {
+        border-top-color: red;
+      }
+    }
+    &[data-shape='squiggle'] {
+      background-color: red;
+    }
+  }
+  &[data-color='purple'] {
+    &[data-shape='oval'] {
+      background-color: purple;
+    }
+    &[data-shape='diamond'] {
+      &::before, &::after {
+        border-top-color: purple;
+      }
+    }
+    &[data-shape='squiggle'] {
+      background-color: purple;
+    }
+  }
+  &[data-color='green']{
+    &[data-shape='oval'] {
+      background-color: green;
+    }
+    &[data-shape='diamond'] {
+      &::before, &::after {
+        border-top-color: green;
+      }
+    }
+    &[data-shape='squiggle'] {
+      background-color: green;
+    }
+  }
+  &[data-index='0'] {
+
+  }
+  &[data-index='1'] {
+
+  }
+  &[data-index='2'] {
+
+  }
+}
+[data-shape='oval'] {
+  &::before {
+    width: 20px;
+    height: 20px;
+    content: "";
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    display: block;
+    left: -10px;
+    position: absolute;
+    top: -1px;
+  }
+  &::after {
+    width:20px;
+    height:20px;
+    content: '';
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    display: block;
+    right: -10px;
+    position: absolute;
+    top: -1px;
+  }
+}
+[data-shape='squiggle'] {
+}
+[data-shape='diamond'] {
+  width: 0;
+  height: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: -18px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top: 24px solid transparent;
+    transform: rotate(-90deg);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: -27px;
+    top: -18px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top: 24px solid transparent;
+    transform: rotate(90deg);
+  }
+}
+
+[data-filled='full'] {
+  // background-color: #f90;
+}
+
+[data-filled='half'] {
+  // background-color: #f00;
+}
+
+[data-filled='none'] {
+  // background-color: #0f9;
+}

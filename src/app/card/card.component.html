@@ -1,0 +1,13 @@
+
+<div class="card">
+  <div
+    class="shape"
+    [attr.data-index]="index"
+    [attr.data-amount]="[amount.length]"
+    [attr.data-filled]="filled"
+    [attr.data-color]="color"
+    [attr.data-shape]="shape"
+    *ngFor="let index of amount"
+  >
+  </div>
+</div>

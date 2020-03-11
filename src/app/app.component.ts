@@ -1,3 +1,5 @@
+import { CardComponent } from './card/card.component';
+
 import { Component } from '@angular/core';
 
 @Component({
